@@ -2,6 +2,7 @@ FactoryBot.define do
   factory :employee do
     employee_name { Faker::Name.name_with_middle }
     email { Faker::Internet.email }
+    password { "123456" }
     gender { "Male" }
     hobbies { "reading" }
     contact_number { Faker::Number.number(digits: 10) }

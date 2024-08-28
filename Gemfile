@@ -60,3 +60,4 @@ end
 
 gem "faker"
 gem "iso_country_codes"
+gem "devise"

@@ -1,29 +1,57 @@
 <!-- Employee Details Showing -->
 <div class="flex-column" style="height: 100vh">
   <!--Error Message-->
-  <% if flash[:errors] %> <% flash.each do |name,message| %>
-  <p class="text-danger"><%= message%></p>
-  <% end %> <% end %>
-  <div class="d-flex">
-    <div class="m-5">
-      <div class="card bg-light border-warning shadow">
-        <div class="card-body">
-          <div class="card-header">
-            <h2 class="text-center">Employee's Details</h2>
+  <% if flash[:errors] %>
+    <% flash.each do |name,message| %>
+      <p class="text-danger">
+        <%= message%>
+      </p>
+      <% end %>
+        <% end %>
+          <div class="d-flex justify-content-center">
+            <div class="m-5">
+              <div class="card bg-light border-warning shadow">
+                <div class="card-body p-0">
+                  <div class="card-header">
+                    <h2 class="text-center">Employee Detail</h2>
+                  </div>
+                  <div class="p-3 pt-5">
+                    <h3>&#10145; ID: <span class="text-success">
+                        <%= @employee.id %>
+                      </span></h3>
+                    <h3>&#10145; Name: <span class="text-success">
+                        <%= @employee.employee_name %>
+                      </span></h3>
+                    <h3>&#10145; Email: <span class="text-success">
+                        <%= @employee.email %>
+                      </span></h3>
+                    <h3>&#10145; Contact No.: <span class="text-success">
+                        <%= @employee.contact_number %>
+                      </span></h3>
+                    <h3>&#10145; Gender: <span class="text-success">
+                        <%= @employee.gender %>
+                      </span></h3>
+                    <h3>&#10145; City: <span class="text-success">
+                        <%= @employee.city %>
+                      </span></h3>
+                    <h3>&#10145; State: <span class="text-success">
+                        <%= @employee.state %>
+                      </span></h3>
+                    <h3>&#10145; Country: <span class="text-success">
+                        <%= @employee.country %>
+                      </span></h3>
+                    <!-- <h2>&#10145; Hobbies: <%= @employee.hobbies %></h2> -->
+                  </div>
+                  <div class="d-flex p-3">
+                    <%= button_to "Edit Employee" , edit_employee_path, method: :get ,class:"btn-success border-0
+                      rounded-pill shadow p-2 m-1" %>
+                      <%= button_to "Delete Employee" , employee_path, method: :delete ,class:"btn-danger border-0
+                        rounded-pill shadow p-2 m-1" %>
+                        <%= button_to "View all Employee" , employees_path,method: :get ,class:"btn-primary border-0
+                          rounded-pill shadow p-2 m-1" %>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <h2>&#10145; ID: <%= @employee.id %></h2>
-            <h2>&#10145; Name: <%= @employee.employee_name %></h2>
-            <h2>&#10145; Gender: <%= @employee.gender %></h2>
-            <h2>&#10145; Hobbies: <%= @employee.hobbies %></h2>
-          </div>
-          <div class="d-flex">
-            <%= button_to "Edit Employee" , edit_employee_path, method: :get ,class:"btn-success border-0 rounded-pill shadow p-2 m-2" %> 
-            <%= button_to "Delete Employee", employee_path, method: :delete ,class:"btn-danger border-0 rounded-pill shadow p-2 m-2" %> 
-            <%= button_to "View all Employee", employees_path,method: :get ,class:"btn-primary border-0 rounded-pill shadow p-2 m-2" %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
